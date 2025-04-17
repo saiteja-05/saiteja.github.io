@@ -3,117 +3,988 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>My Portfolio</title>
-    <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
-    <script src="https://cdn.tailwindcss.com"></script>
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css" integrity="sha512-9usAa10IRO0HhonpyAIVpjrylPvoDwiPUiKdWk5t3PyolY1cOd4DSE0Ga+ri4AuTroPR5aQvXU9xC6qOPnzFeg==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+    <title>Saiteja | Software Developer</title>
     <style>
+        /* Reset and Base Styles */
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
+        }
+
         body {
-            font-family: 'Inter', sans-serif;
+            background-color: #f5f5f7;
+            color: #1d1d1f;
+            overflow-x: hidden;
+        }
+
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 24px;
+        }
+
+        section {
+            padding: 80px 0;
+        }
+
+        h1, h2, h3 {
+            font-weight: 600;
+        }
+
+        h1 {
+            font-size: 56px;
+            line-height: 1.1;
+            margin-bottom: 20px;
+        }
+
+        h2 {
+            font-size: 48px;
+            margin-bottom: 50px;
+            text-align: center;
+        }
+
+        h3 {
+            font-size: 24px;
+            margin-bottom: 16px;
+        }
+
+        p {
+            font-size: 18px;
+            line-height: 1.5;
+            margin-bottom: 24px;
+        }
+
+        a {
+            text-decoration: none;
+            color: #0066cc;
+            transition: color 0.3s;
+        }
+
+        a:hover {
+            color: #0044aa;
+        }
+
+        .btn {
+            display: inline-block;
+            background: #0066cc;
+            color: white;
+            padding: 12px 28px;
+            border-radius: 30px;
+            font-size: 18px;
+            font-weight: 500;
+            transition: all 0.3s ease;
+            border: none;
+            cursor: pointer;
+        }
+
+        .btn:hover {
+            background: #0044aa;
+            transform: translateY(-3px);
+            box-shadow: 0 10px 20px rgba(0, 0, 0, 0.1);
+        }
+
+        /* Header Styles */
+        header {
+            background-color: rgba(255, 255, 255, 0.8);
+            backdrop-filter: blur(10px);
+            position: fixed;
+            width: 100%;
+            z-index: 100;
+            padding: 16px 0;
+            box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+        }
+
+        nav {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .logo {
+            font-size: 24px;
+            font-weight: 700;
+            color: #1d1d1f;
+        }
+
+        .nav-links {
+            display: flex;
+            list-style: none;
+        }
+
+        .nav-links li {
+            margin-left: 32px;
+        }
+
+        .nav-links a {
+            color: #1d1d1f;
+            font-weight: 500;
+        }
+
+        .mobile-menu-btn {
+            display: none;
+            background: none;
+            border: none;
+            font-size: 24px;
+            cursor: pointer;
+        }
+
+        /* Hero Section */
+        .hero {
+            min-height: 100vh;
+            display: flex;
+            align-items: center;
+/*             background: linear-gradient(135deg, #6366f1 0%, #a855f7 100%); */
+             background:linear-gradient(90deg, #3F2B96 0%, #A8C0FF 100%),
+            color: white;
+            padding-top: 80px;
+        }
+
+        .hero-content {
+            max-width: 600px;
+        }
+
+        .hero-img {
+            margin-left: 40px;
+            max-width: 50%;
+            border-radius: 20px;
+            box-shadow: 0 20px 40px rgba(0, 0, 0, 0.3);
+            animation: float 6s ease-in-out infinite;
+        }
+
+        @keyframes float {
+            0% { transform: translateY(0px); }
+            50% { transform: translateY(-20px); }
+            100% { transform: translateY(0px); }
+        }
+
+        .hero-buttons {
+            display: flex;
+            gap: 16px;
+            margin-top: 32px;
+        }
+
+        .secondary-btn {
+            background: transparent;
+            border: 2px solid white;
+            color: white;
+        }
+
+        .secondary-btn:hover {
+            background: rgba(255, 255, 255, 0.2);
+        }
+
+        /* About Section */
+        .about {
+            background-color: white;
+        }
+
+        .about-flex {
+            display: flex;
+            align-items: center;
+            gap: 60px;
+        }
+
+        .about-img {
+            max-width: 40%;
+            border-radius: 20px;
+            box-shadow: 0 20px 40px rgba(0, 0, 0, 0.1);
+        }
+
+        .skills {
+            margin-top: 40px;
+        }
+
+        .skill-tags {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 12px;
+            margin-top: 16px;
+        }
+
+        .skill-tag {
+            background: #f2f2f7;
+            padding: 8px 16px;
+            border-radius: 20px;
+            font-size: 14px;
+            font-weight: 500;
+        }
+
+        /* Projects Section */
+        .projects {
+            background-color: #f5f5f7;
+        }
+
+        .projects-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 32px;
+        }
+
+        .project-card {
+            background: white;
+            border-radius: 20px;
+            overflow: hidden;
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+        }
+
+        .project-card:hover {
+            transform: translateY(-10px);
+            box-shadow: 0 20px 40px rgba(0, 0, 0, 0.15);
+        }
+
+        .project-img {
+            width: 100%;
+            height: 200px;
+            object-fit: cover;
+        }
+
+        .project-content {
+            padding: 24px;
+        }
+
+        .project-tags {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 8px;
+            margin-bottom: 16px;
+        }
+
+        .project-tag {
+            background: #f2f2f7;
+            padding: 6px 12px;
+            border-radius: 16px;
+            font-size: 12px;
+            font-weight: 500;
+        }
+
+        /* Experience Section */
+        .experience {
+            background-color: white;
+        }
+
+        .timeline {
+            max-width: 800px;
+            margin: 0 auto;
+            position: relative;
+        }
+
+        .timeline::before {
+            content: '';
+            position: absolute;
+            left: 50%;
+            width: 2px;
+            height: 100%;
+            background: #e0e0e0;
+            transform: translateX(-50%);
+        }
+
+        .timeline-item {
+            display: flex;
+            justify-content: flex-end;
+            padding-right: 30px;
+            position: relative;
+            margin-bottom: 40px;
+            width: 50%;
+        }
+
+        .timeline-item:nth-child(even) {
+            align-self: flex-end;
+            justify-content: flex-start;
+            padding-right: 0;
+            padding-left: 30px;
+            margin-left: 50%;
+        }
+
+        .timeline-item::before {
+            content: '';
+            position: absolute;
+            width: 16px;
+            height: 16px;
+            background: #0066cc;
+            border-radius: 50%;
+            right: -8px;
+            top: 20px;
+        }
+
+        .timeline-item:nth-child(even)::before {
+            right: auto;
+            left: -8px;
+        }
+
+        .timeline-content {
+            background: #f5f5f7;
+            padding: 24px;
+            border-radius: 16px;
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.05);
+        }
+
+        .timeline-date {
+            font-size: 14px;
+            font-weight: 600;
+            color: #0066cc;
+            margin-bottom: 8px;
+        }
+
+        /* Testimonials Section */
+        .testimonials {
+            background-color: #f5f5f7;
+        }
+
+        .testimonials-slider {
+            max-width: 800px;
+            margin: 0 auto;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .testimonials-track {
+            display: flex;
+            transition: transform 0.5s ease;
+        }
+
+        .testimonial {
+            min-width: 100%;
+            padding: 0 24px;
+        }
+
+        .testimonial-content {
+            background: white;
+            padding: 32px;
+            border-radius: 20px;
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
+            position: relative;
+        }
+
+        .testimonial-content::before {
+            content: '"';
+            position: absolute;
+            top: 16px;
+            left: 16px;
+            font-size: 80px;
+            color: #f2f2f7;
+            line-height: 1;
+            z-index: 0;
+        }
+
+        .testimonial-text {
+            position: relative;
+            z-index: 1;
+            font-style: italic;
+        }
+
+        .testimonial-author {
+            display: flex;
+            align-items: center;
+            margin-top: 24px;
+        }
+
+        .author-img {
+            width: 50px;
+            height: 50px;
+            border-radius: 50%;
+            object-fit: cover;
+            margin-right: 16px;
+        }
+
+        .author-info h4 {
+            font-size: 18px;
+            margin-bottom: 4px;
+        }
+
+        .author-info p {
+            font-size: 14px;
+            color: #6e6e73;
+            margin: 0;
+        }
+
+        .testimonial-dots {
+            display: flex;
+            justify-content: center;
+            margin-top: 32px;
+        }
+
+        .dot {
+            width: 12px;
+            height: 12px;
+            border-radius: 50%;
+            background: #d2d2d7;
+            margin: 0 8px;
+            cursor: pointer;
+            transition: background 0.3s ease;
+        }
+
+        .dot.active {
+            background: #0066cc;
+        }
+
+        /* Contact Section */
+        .contact {
+            background: linear-gradient(135deg, #6366f1 0%, #a855f7 100%);
+            color: white;
+        }
+
+        .contact-flex {
+            display: flex;
+            gap: 60px;
+        }
+
+        .contact-info {
+            flex: 1;
+        }
+
+        .contact-form {
+            flex: 1;
+        }
+
+        .form-group {
+            margin-bottom: 24px;
+        }
+
+        .form-control {
+            width: 100%;
+            padding: 16px;
+            border-radius: 10px;
+            border: none;
+            font-size: 16px;
+        }
+
+        textarea.form-control {
+            min-height: 150px;
+            resize: vertical;
+        }
+
+        .contact-links {
+            margin-top: 32px;
+        }
+
+        .contact-link {
+            display: flex;
+            align-items: center;
+            color: white;
+            margin-bottom: 16px;
+        }
+
+        .contact-link i {
+            margin-right: 12px;
+            font-size: 20px;
+        }
+
+        .social-links {
+            display: flex;
+            gap: 16px;
+            margin-top: 24px;
+        }
+
+        .social-link {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            width: 40px;
+            height: 40px;
+            background: rgba(255, 255, 255, 0.2);
+            border-radius: 50%;
+            color: white;
+            transition: all 0.3s ease;
+        }
+
+        .social-link:hover {
+            background: white;
+            color: #6366f1;
+        }
+
+        /* Footer */
+        footer {
+            background-color: #1d1d1f;
+            color: white;
+            padding: 32px 0;
+            text-align: center;
+        }
+
+        .footer-links {
+            display: flex;
+            justify-content: center;
+            gap: 24px;
+            margin: 16px 0;
+        }
+
+        .footer-links a {
+            color: #a1a1a6;
+        }
+
+        .footer-links a:hover {
+            color: white;
+        }
+
+        .back-to-top {
+            display: inline-flex;
+            align-items: center;
+            color: #a1a1a6;
+            margin-top: 16px;
+        }
+
+        .back-to-top:hover {
+            color: white;
+        }
+
+        .back-to-top i {
+            margin-left: 8px;
+        }
+
+        /* Media Queries */
+        @media (max-width: 992px) {
+            h1 {
+                font-size: 48px;
+            }
+
+            h2 {
+                font-size: 36px;
+            }
+
+            .hero-img {
+                max-width: 45%;
+            }
+
+            .about-flex {
+                flex-direction: column;
+            }
+
+            .about-img {
+                max-width: 70%;
+                margin-bottom: 30px;
+            }
+
+            .contact-flex {
+                flex-direction: column;
+            }
+        }
+
+        @media (max-width: 768px) {
+            .hero {
+                flex-direction: column;
+                padding-top: 100px;
+                text-align: center;
+            }
+
+            .hero-content {
+                max-width: 100%;
+                margin-bottom: 40px;
+            }
+
+            .hero-img {
+                max-width: 80%;
+                margin-left: 0;
+            }
+
+            .hero-buttons {
+                justify-content: center;
+            }
+
+            .nav-links {
+                display: none;
+                position: absolute;
+                top: 100%;
+                left: 0;
+                width: 100%;
+                background: white;
+                flex-direction: column;
+                align-items: center;
+                padding: 20px 0;
+                box-shadow: 0 10px 20px rgba(0, 0, 0, 0.1);
+            }
+
+            .nav-links.active {
+                display: flex;
+            }
+
+            .nav-links li {
+                margin: 10px 0;
+            }
+
+            .mobile-menu-btn {
+                display: block;
+            }
+
+            .timeline::before {
+                left: 20px;
+            }
+
+            .timeline-item {
+                width: 100%;
+                padding-right: 0;
+                padding-left: 60px;
+            }
+
+            .timeline-item:nth-child(even) {
+                align-self: auto;
+                margin-left: 0;
+                padding-left: 60px;
+            }
+
+            .timeline-item::before {
+                left: 12px;
+                right: auto;
+            }
+
+            .timeline-item:nth-child(even)::before {
+                left: 12px;
+            }
+        }
+
+        @media (max-width: 576px) {
+            h1 {
+                font-size: 36px;
+            }
+
+            h2 {
+                font-size: 28px;
+            }
+
+            section {
+                padding: 60px 0;
+            }
+
+            .hero-img {
+                max-width: 100%;
+            }
+
+            .about-img {
+                max-width: 100%;
+            }
+
+            .projects-grid {
+                grid-template-columns: 1fr;
+            }
         }
     </style>
 </head>
-<body class="bg-gray-100">
-    <header class="bg-gradient-to-r from-blue-600 to-purple-600 text-white py-6 shadow-md">
-        <div class="container mx-auto flex justify-between items-center">
-            <h1 class="text-3xl font-semibold tracking-wide">My Portfolio</h1>
+<body>
+    <!-- Header -->
+    <header id="header">
+        <div class="container">
             <nav>
-                <ul class="flex space-x-6">
-                    <li><a href="#about" class="hover:text-purple-200 transition duration-300 flex items-center"><i class="fas fa-user mr-2"></i> About</a></li>
-                    <li><a href="#projects" class="hover:text-purple-200 transition duration-300 flex items-center"><i class="fas fa-code mr-2"></i> Projects</a></li>
-                    <li><a href="#contact" class="hover:text-purple-200 transition duration-300 flex items-center"><i class="fas fa-envelope mr-2"></i> Contact</a></li>
+                <a href="#" class="logo">Alex<span style="color: #0066cc;">Dev</span></a>
+                <ul class="nav-links">
+                    <li><a href="#about">About</a></li>
+                    <li><a href="#projects">Projects</a></li>
+                    <li><a href="#experience">Experience</a></li>
+                    <li><a href="#testimonials">Testimonials</a></li>
+                    <li><a href="#contact">Contact</a></li>
                 </ul>
+                <button class="mobile-menu-btn">☰</button>
             </nav>
         </div>
     </header>
 
-    <main class="container mx-auto py-10">
-        <section id="about" class="mb-16 bg-white rounded-lg shadow-lg p-8">
-            <h2 class="text-4xl font-semibold text-blue-700 mb-6 text-center"><i class="fas fa-user-circle mr-3"></i> About Me</h2>
-            <div class="flex flex-col md:flex-row gap-10 items-center">
-                <div class="md:w-1/3">
-                    <img src="fireworksAI.png" alt="Your Name" class="rounded-full shadow-xl border-4 border-purple-300">
-                </div>
-                <div class="md:w-2/3">
-                    <p class="text-gray-700 leading-relaxed text-lg">
-                        Hello! I'm [Your Name], a passionate [Your Profession] with a focus on [Your Focus]. I have a strong background in the following skills:
-                    </p>
-                    <ul class="list-disc list-inside mt-4 text-gray-600">
-                        <li><i class="fas fa-check-circle text-green-500 mr-2"></i> [Skill 1]</li>
-                        <li><i class="fas fa-check-circle text-green-500 mr-2"></i> [Skill 2]</li>
-                        <li><i class="fas fa-check-circle text-green-500 mr-2"></i> [Skill 3]</li>
-                        </ul>
-                    <p class="text-gray-700 leading-relaxed mt-4 text-lg">
-                        I'm always eager to learn new technologies and strive to create impactful and user-friendly solutions.
-                    </p>
+    <!-- Hero Section -->
+    <section class="hero" id="home">
+        <div class="container" style="display: flex; align-items: center; justify-content: space-between;">
+            <div class="hero-content">
+                <h1>Full-Stack Developer Who Builds Modern Web Applications</h1>
+                <p>I craft beautiful, functional websites and applications that deliver exceptional user experiences.</p>
+                <div class="hero-buttons">
+                    <a href="#projects" class="btn">View My Work</a>
+                    <a href="#contact" class="btn secondary-btn">Let's Talk</a>
                 </div>
             </div>
-        </section>
+            <img src="/api/placeholder/500/500" alt="Developer portrait" class="hero-img">
+        </div>
+    </section>
 
-        <section id="projects" class="mb-16">
-            <h2 class="text-4xl font-semibold text-blue-700 mb-6 text-center"><i class="fas fa-code-branch mr-3"></i> Projects</h2>
-            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
-                <div class="bg-white rounded-lg shadow-md p-6 hover:shadow-lg transition duration-300 flex flex-col">
-                    <h3 class="text-2xl font-semibold text-gray-800 mb-4 flex items-center"><i class="fas fa-folder-open mr-2 text-blue-500"></i> Project 1</h3>
-                    <p class="text-gray-600 mb-4">A brief description of project 1.  This project demonstrates my ability to use [Tech 1] and [Tech 2].</p>
-                    <div class="mt-auto">
-                        <a href="#" class="text-white bg-gradient-to-r from-green-400 to-blue-500 hover:from-green-500 hover:to-blue-600 px-5 py-3 rounded-md transition duration-300 text-lg font-semibold flex items-center"><i class="fas fa-external-link-alt mr-2"></i> View Project</a>
-                    </div>
-                </div>
-                <div class="bg-white rounded-lg shadow-md p-6 hover:shadow-lg transition duration-300 flex flex-col">
-                    <h3 class="text-2xl font-semibold text-gray-800 mb-4 flex items-center"><i class="fas fa-folder-open mr-2 text-blue-500"></i> Project 2</h3>
-                    <p class="text-gray-600 mb-4">A brief description of project 2.  This project showcases my skills in [Tech 3] and [Tech 4].</p>
-                    <div class="mt-auto">
-                        <a href="#" class="text-white bg-gradient-to-r from-green-400 to-blue-500 hover:from-green-500 hover:to-blue-600 px-5 py-3 rounded-md transition duration-300 text-lg font-semibold flex items-center"><i class="fas fa-external-link-alt mr-2"></i> View Project</a>
-                    </div>
-                </div>
-                <div class="bg-white rounded-lg shadow-md p-6 hover:shadow-lg transition duration-300 flex flex-col">
-                    <h3 class="text-2xl font-semibold text-gray-800 mb-4 flex items-center"><i class="fas fa-folder-open mr-2 text-blue-500"></i> Project 3</h3>
-                    <p class="text-gray-600 mb-4">A brief description of project 3.  This was a challenging project that allowed me to learn [Tech 5].</p>
-                    <div class="mt-auto">
-                        <a href="#" class="text-white bg-gradient-to-r from-green-400 to-blue-500 hover:from-green-500 hover:to-blue-600 px-5 py-3 rounded-md transition duration-300 text-lg font-semibold flex items-center"><i class="fas fa-external-link-alt mr-2"></i> View Project</a>
+    <!-- About Section -->
+    <section class="about" id="about">
+        <div class="container">
+            <h2>About Me</h2>
+            <div class="about-flex">
+                <img src="/api/placeholder/400/400" alt="Developer working" class="about-img">
+                <div>
+                    <p>Hello! I'm Alex, a passionate Full-Stack Developer with 5+ years of experience building web applications that are not only functional but also beautiful and intuitive to use.</p>
+                    <p>I specialize in creating modern web experiences using the latest technologies and best practices. My approach combines technical excellence with a keen eye for design and user experience.</p>
+                    <p>When I'm not coding, you can find me exploring new technologies, contributing to open-source projects, or hiking in the great outdoors.</p>
+                    <div class="skills">
+                        <h3>My Skills</h3>
+                        <div class="skill-tags">
+                            <span class="skill-tag">JavaScript</span>
+                            <span class="skill-tag">React</span>
+                            <span class="skill-tag">Node.js</span>
+                            <span class="skill-tag">TypeScript</span>
+                            <span class="skill-tag">Python</span>
+                            <span class="skill-tag">MongoDB</span>
+                            <span class="skill-tag">PostgreSQL</span>
+                            <span class="skill-tag">AWS</span>
+                            <span class="skill-tag">Docker</span>
+                            <span class="skill-tag">CI/CD</span>
+                            <span class="skill-tag">UI/UX Design</span>
+                            <span class="skill-tag">Responsive Design</span>
+                        </div>
                     </div>
                 </div>
             </div>
-        </section>
+        </div>
+    </section>
 
-        <section id="contact" class="mb-16 bg-white rounded-lg shadow-lg p-8">
-            <h2 class="text-4xl font-semibold text-blue-700 mb-6 text-center"><i class="fas fa-envelope-open-text mr-3"></i> Contact Me</h2>
-            <p class="text-gray-700 mb-6 text-lg text-center">
-                Feel free to reach out to me via email or connect with me on social media. I'm open to new opportunities and collaborations.
-            </p>
-            <div class="flex justify-center">
-                <ul class="list-none space-y-4">
-                    <li class="flex items-center">
-                        <span class="font-semibold text-gray-800 mr-3 text-lg"><i class="fas fa-envelope text-blue-500 mr-2"></i> Email:</span>
-                        <a href="mailto:your.email@example.com" class="text-blue-600 hover:text-purple-600 transition duration-300 text-lg">your.email@example.com</a>
-                    </li>
-                    <li class="flex items-center">
-                        <span class="font-semibold text-gray-800 mr-3 text-lg"><i class="fab fa-linkedin text-blue-500 mr-2"></i> LinkedIn:</span>
-                        <a href="https://www.linkedin.com/in/yourprofile" target="_blank" rel="noopener noreferrer" class="text-blue-600 hover:text-purple-600 transition duration-300 text-lg">linkedin.com/in/yourprofile</a>
-                    </li>
-                    </ul>
+    <!-- Projects Section -->
+    <section class="projects" id="projects">
+        <div class="container">
+            <h2>Featured Projects</h2>
+            <div class="projects-grid">
+                <!-- Project 1 -->
+                <div class="project-card">
+                    <img src="/api/placeholder/600/400" alt="Project 1" class="project-img">
+                    <div class="project-content">
+                        <div class="project-tags">
+                            <span class="project-tag">React</span>
+                            <span class="project-tag">Node.js</span>
+                            <span class="project-tag">MongoDB</span>
+                        </div>
+                        <h3>HealthTrack Pro</h3>
+                        <p>A comprehensive health tracking application that helps users monitor their fitness goals, nutrition, and daily activities.</p>
+                        <a href="#" class="btn">View Project</a>
+                    </div>
+                </div>
+                
+                <!-- Project 2 -->
+                <div class="project-card">
+                    <img src="/api/placeholder/600/400" alt="Project 2" class="project-img">
+                    <div class="project-content">
+                        <div class="project-tags">
+                            <span class="project-tag">Vue.js</span>
+                            <span class="project-tag">Express</span>
+                            <span class="project-tag">PostgreSQL</span>
+                        </div>
+                        <h3>FinanceBuddy</h3>
+                        <p>Personal finance management tool that helps users track expenses, create budgets, and visualize their financial health.</p>
+                        <a href="#" class="btn">View Project</a>
+                    </div>
+                </div>
+                
+                <!-- Project 3 -->
+                <div class="project-card">
+                    <img src="/api/placeholder/600/400" alt="Project 3" class="project-img">
+                    <div class="project-content">
+                        <div class="project-tags">
+                            <span class="project-tag">React Native</span>
+                            <span class="project-tag">Firebase</span>
+                            <span class="project-tag">Redux</span>
+                        </div>
+                        <h3>TravelPal</h3>
+                        <p>Mobile application for travelers to discover local attractions, create itineraries, and connect with fellow explorers.</p>
+                        <a href="#" class="btn">View Project</a>
+                    </div>
+                </div>
             </div>
-        </section>
-    </main>
+        </div>
+    </section>
 
-    <footer class="bg-gray-800 text-white py-6 text-center rounded-t-lg shadow-md">
-        <p>&copy; 2024 My Portfolio. All rights reserved.</p>
+    <!-- Experience Section -->
+    <section class="experience" id="experience">
+        <div class="container">
+            <h2>Work Experience</h2>
+            <div class="timeline">
+                <!-- Experience 1 -->
+                <div class="timeline-item">
+                    <div class="timeline-content">
+                        <div class="timeline-date">2022 - Present</div>
+                        <h3>Senior Full-Stack Developer</h3>
+                        <p>TechInnovate Solutions</p>
+                        <p>Led the development of enterprise-level web applications, mentored junior developers, and implemented CI/CD pipelines to streamline development workflows.</p>
+                    </div>
+                </div>
+                
+                <!-- Experience 2 -->
+                <div class="timeline-item">
+                    <div class="timeline-content">
+                        <div class="timeline-date">2020 - 2022</div>
+                        <h3>Full-Stack Developer</h3>
+                        <p>WebGenius Inc.</p>
+                        <p>Developed and maintained multiple client projects using React, Node.js, and MongoDB, focusing on responsive design and performance optimization.</p>
+                    </div>
+                </div>
+                
+                <!-- Experience 3 -->
+                <div class="timeline-item">
+                    <div class="timeline-content">
+                        <div class="timeline-date">2018 - 2020</div>
+                        <h3>Front-End Developer</h3>
+                        <p>Digital Creatives</p>
+                        <p>Created responsive UI components, implemented user authentication systems, and collaborated with designers to bring mockups to life.</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Testimonials Section -->
+    <section class="testimonials" id="testimonials">
+        <div class="container">
+            <h2>What Others Say</h2>
+            <div class="testimonials-slider">
+                <div class="testimonials-track">
+                    <!-- Testimonial 1 -->
+                    <div class="testimonial">
+                        <div class="testimonial-content">
+                            <p class="testimonial-text">Alex is an exceptional developer who delivered our project ahead of schedule. Their attention to detail and problem-solving skills made them an invaluable asset to our team.</p>
+                            <div class="testimonial-author">
+                                <img src="/api/placeholder/100/100" alt="Sarah Johnson" class="author-img">
+                                <div class="author-info">
+                                    <h4>Sarah Johnson</h4>
+                                    <p>CTO, FinanceBuddy</p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <!-- Testimonial 2 -->
+                    <div class="testimonial">
+                        <div class="testimonial-content">
+                            <p class="testimonial-text">Working with Alex was a pleasure. They took our vague idea and transformed it into a beautiful, functional application that exceeded our expectations in every way.</p>
+                            <div class="testimonial-author">
+                                <img src="/api/placeholder/100/100" alt="Michael Chen" class="author-img">
+                                <div class="author-info">
+                                    <h4>Michael Chen</h4>
+                                    <p>Founder, HealthTrack Pro</p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <!-- Testimonial 3 -->
+                    <div class="testimonial">
+                        <div class="testimonial-content">
+                            <p class="testimonial-text">Alex's technical skills are matched only by their communication abilities. They kept us informed throughout the entire development process and delivered a product that our users love.</p>
+                            <div class="testimonial-author">
+                                <img src="/api/placeholder/100/100" alt="Jessica Miller" class="author-img">
+                                <div class="author-info">
+                                    <h4>Jessica Miller</h4>
+                                    <p>Product Manager, TravelPal</p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="testimonial-dots">
+                    <span class="dot active" data-index="0"></span>
+                    <span class="dot" data-index="1"></span>
+                    <span class="dot" data-index="2"></span>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Contact Section -->
+    <section class="contact" id="contact">
+        <div class="container">
+            <h2>Get In Touch</h2>
+            <div class="contact-flex">
+                <div class="contact-info">
+                    <p>Have a project in mind or just want to chat? I'd love to hear from you! Fill out the form or reach out through any of the channels below.</p>
+                    <div class="contact-links">
+                        <a href="mailto:hello@alexchen.dev" class="contact-link">
+                            <i>✉️</i>
+                            <span>hello@alexchen.dev</span>
+                        </a>
+                        <a href="tel:+1234567890" class="contact-link">
+                            <i>📱</i>
+                            <span>+1 (234) 567-890</span>
+                        </a>
+                        <a href="#" class="contact-link">
+                            <i>📍</i>
+                            <span>San Francisco, CA</span>
+                        </a>
+                    </div>
+                    <div class="social-links">
+                        <a href="#" class="social-link">in</a>
+                        <a href="#" class="social-link">gh</a>
+                        <a href="#" class="social-link">tw</a>
+                        <a href="#" class="social-link">yt</a>
+                    </div>
+                </div>
+                <div class="contact-form">
+                    <form id="contactForm">
+                        <div class="form-group">
+                            <input type="text" class="form-control" placeholder="Your Name" required>
+                        </div>
+                        <div class="form-group">
+                            <input type="email" class="form-control" placeholder="Your Email" required>
+                        </div>
+                        <div class="form-group">
+                            <input type="text" class="form-control" placeholder="Subject" required>
+                        </div>
+                        <div class="form-group">
+                            <textarea class="form-control" placeholder="Your Message" required></textarea>
+                        </div>
+                        <button type="submit" class="btn">Send Message</button>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer>
+        <div class="container">
+            <p>© 2025 Alex Chen. All rights reserved.</p>
+            <div class="footer-links">
+                <a href="#about">About</a>
+                <a href="#projects">Projects</a>
+                <a href="#experience">Experience</a>
+                <a href="#testimonials">Testimonials</a>
+                <a href="#contact">Contact</a>
+            </div>
+            <a href="#home" class="back-to-top">Back to top <i>↑</i></a>
+        </div>
     </footer>
 
     <script>
-        // You can add JavaScript for interactive elements here
-        // For example, smooth scrolling for navigation links
+        // Mobile Menu Toggle
+        const mobileMenuBtn = document.querySelector('.mobile-menu-btn');
+        const navLinks = document.querySelector('.nav-links');
+        
+        mobileMenuBtn.addEventListener('click', () => {
+            navLinks.classList.toggle('active');
+        });
+        
+        // Smooth Scrolling for Navigation Links
         document.querySelectorAll('a[href^="#"]').forEach(anchor => {
-            anchor.addEventListener('click', function (e) {
+            anchor.addEventListener('click', function(e) {
                 e.preventDefault();
-                document.querySelector(this.getAttribute('href')).scrollIntoView({
-                    behavior: 'smooth'
-                });
+                navLinks.classList.remove('active');
+                
+                const targetId = this.getAttribute('href');
+                if (targetId === '#') return;
+                
+                const targetElement = document.querySelector(targetId);
+                if (targetElement) {
+                    window.scrollTo({
+                        top: targetElement.offsetTop - 80,
+                        behavior: 'smooth'
+                    });
+                }
             });
         });
-    </script>
-</body>
-</html>
+        
+        // Testimonial Slider
+        const track = document.querySelector('.testimonials-track');
+        const dots = document.querySelectorAll('.dot');
+        const testimonials = document.querySelectorAll('.testimonial');
+        
+        dots.forEach(dot => {
+            dot.addEventListener('click', () => {
+                const index = dot.getAttribute('data-index');
+                
+                // Update active dot
+                dots.forEach(d => d.classList.remove('active'));
+                dot.classList.add('active');
+                
+                // Move track
+                track.style.transform = `translateX(-${index * 100}%)`;
+            });
+        });
+        
+        // Auto slide testimonials
+        let currentIndex = 0;
+        const totalTestimonials = testimonials.length;
+        
+        function autoSlide()
