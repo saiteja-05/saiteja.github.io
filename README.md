@@ -1,2 +1,0 @@
-# saiteja
-portfolio website
